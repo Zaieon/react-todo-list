@@ -1,0 +1,20 @@
+.new-item {
+    position:sticky;
+    transform: translateY(40px);
+    top: 100%;
+    left: 44%;
+    margin: 0px auto;
+    color: blue;
+    width: 10rem;
+    height: 3rem;
+    border: none .5px solid;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+
+    & span {
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
+}
