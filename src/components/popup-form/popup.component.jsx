@@ -4,10 +4,10 @@ import './popup.style.scss';
 export const PopUpForm = ({ addItem, isOpen, onClose }) => {
     return (
         <div className={`popup ${isOpen ? 'active' : ''}`}>
-            <button onClick={onClose}><strong>X</strong></button>
+            <button className="x-btn" onClick={onClose}><strong>X</strong></button>
             <div className="popup-content">
                 <input className="todo" type="text" placeholder="Write a goal..." />
-                <button onClick={() => addItem(document.querySelector('.todo').value)}>Add Goal</button>
+                <button className="add-item" onClick={(e) => addItem(e, document.querySelector('.todo').value)}>Add Goal</button>
             </div>
 
         </div>

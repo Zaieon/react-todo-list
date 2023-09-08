@@ -11,7 +11,7 @@
     & ul {
         list-style: none;
 
-        & li {
+        & .item {
             font-size: larger;
             font-weight: 500;
             display: flex;
@@ -23,9 +23,16 @@
             &span {
                 flex-basis: 500px;
             }
-            &.trash-can {
+            & .trash-can {
                 cursor: pointer;
             }
         }
     }
 }
+
+
+// On checking I could see two installations for the same subdomain and this will results in conflicts:
+//                         https://www.namecheap.com/support/knowledgebase/article.aspx/10255/2255/video-how-to-remove-an-installation-via-softaculous/?_ga=2.134200140.391881409.1694061903-583142592.1694061903
+
+//                         Yes, we can but please make sure that you have the correct WordPress installation and if possible please create a backup of the installation:
+//                         https://www.namecheap.com/support/knowledgebase/article.aspx/1258/2182/how-to-work-with-scripts-in-softaculous/?_ga=2.2940658.391881409.1694061903-583142592.1694061903#backup

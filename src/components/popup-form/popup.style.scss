@@ -1,6 +1,5 @@
 .popup {
     display: none;
-
     position: relative;
     transform: translateY(-30px);
     top: 60%;
@@ -10,17 +9,34 @@
     height: 3rem;
     border: none .5px solid;
     border-radius: 10px;
-    transition: disple 10s ease-in;
-    
+    transition: display 10s ease-in;
 
     &.active {
         display: block;
+        animation: dis .5s ease-in;
+
+        @keyframes dis {
+            0% {
+                opacity: 0;
+            }
+            25% {
+                opacity: .40;
+            }
+            75% {
+                opacity: .70;
+            }
+            100% {
+                opacity: 1;
+            }
+
+
+        }
 
         &.active:active {
             transition: all 5s ease-in;
         }
 
-        & button {
+        & .x-btn {
             opacity: 0.3;
             transform: translateY(25px) translateX(15px);
             border-radius: 20px;
@@ -44,15 +60,15 @@
             outline: none;
         }
 
-        & button {
-            transform: translateY(1.8rem);
-                color: blue;
-                width: 8rem;
-                height: 2rem;
-                border: none .5px solid;
-                border-radius: 10px;
-                font-size: 20px;
-                cursor: pointer;
+        & .add-item {
+            transform: translateY(2.2rem);
+            color: blue;
+            width: 8rem;
+            height: 2rem;
+            border: none .5px solid;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
         }
     }
 }
