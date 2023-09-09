@@ -3,6 +3,8 @@ import './main-area.style.scss';
 import { NewTask } from "../new-task/new-task.component";
 import { PopUpForm } from "../popup-form/popup.component";
 import { GiTrashCan } from "react-icons/gi";
+import ListItem from "./checkbox.component";
+
 
 
 
@@ -11,24 +13,27 @@ export class MainArea extends Component {
         super()
         this.state = {
             todos: [],
-            isPopUpOpen: false
+            isPopUpOpen: false,
+            isChecked: false,
+            count: 0
         }
     }
 
-    addItem = (e, val) => {
+    addItem = (val) => {
 
-        // if (e.target.classList.contains('add-item')) {
             var id;
             if (this.state.todos.length === 0) {
                 id = 1
             }
             else if (this.state.todos.length >= 1) {
                 id = this.state.todos[this.state.todos.length - 1].id + 1
-        }
-            this.setState({todos: [...this.state.todos, {id: id, value: val.trim()}]})
-            console.log(this.state.todos)    
+            }
+            this.setState({ todos: [...this.state.todos, { id: id, value: val.trim(), isChecked: false }] })
+            console.log(this.state.todos)
+        
     }
-    
+
+      
     deleteItem = (e) => {
         let updatedItems;
         if (e.target.parentElement.parentElement.id) {
@@ -43,6 +48,24 @@ export class MainArea extends Component {
         }
         
     }
+
+    // account = () => {
+    //     this.setState({ isChecked: !this.state.isChecked })
+    //     console.log(this.state.isChecked)
+    // }
+
+     handleItemCheckboxChange = (itemId, isChecked) => {
+    // Update the state of the item with the new checkbox value
+    const updatedItems = this.state.todos.map((item) => {
+      if (item.id === itemId) {
+        return { ...item, isChecked };
+      }
+      return item;
+    });
+
+    // Update the state with the new list of items
+         this.setState({ todos: updatedItems });
+  };
 
     openPopUp = () => {
     this.setState({isPopUpOpen: true})
@@ -61,7 +84,7 @@ export class MainArea extends Component {
 
                          this.state.todos.map((todo, index) => {
                             
-                            return <li key={todo.id} className="item" id= {todo.id}><input type="checkbox" name="" id='' /><span>{todo.value}</span> <GiTrashCan onClick={(e) => this.deleteItem(e)} className="trash-can" /></li>
+                            return <li key={todo.id} className="item" id= {todo.id}><ListItem label={todo.title} onCheckboxChange={(isChecked) =>this.handleItemCheckboxChange(todo.id, isChecked)}/><span>{todo.value}</span> <GiTrashCan onClick={(e) => this.deleteItem(e)} className="trash-can" /></li>
                             
                         
                         })   

@@ -9,31 +9,32 @@
     height: 3rem;
     border: none .5px solid;
     border-radius: 10px;
-    transition: display 10s ease-in;
 
     &.active {
         display: block;
-        animation: dis .5s ease-in;
+        animation: dis .3s linear;
 
         @keyframes dis {
             0% {
                 opacity: 0;
+                transform: translateY(50px);
             }
             25% {
-                opacity: .40;
+                opacity: .25;
+                transform: translateY(30px);
+            }
+            50% {
+                opacity: .50;
+                transform: translateY(10px);
             }
             75% {
-                opacity: .70;
+                opacity: .75;
+                transform: translateY(-10px);
             }
             100% {
                 opacity: 1;
+                transform: translateY(-30px);
             }
-
-
-        }
-
-        &.active:active {
-            transition: all 5s ease-in;
         }
 
         & .x-btn {
