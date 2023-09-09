@@ -2,10 +2,12 @@
     color: blue;
     width: 10em;
     height: 2rem;
-    border: none .5px solid;
+    border: none;
+    outline: 1px solid rgb(247, 178, 247);
     border-radius: 15px;
     font-size: 16px;
     cursor: pointer;
     transform: translateY(1em) translateX(1.5rem);
+
 
 }
