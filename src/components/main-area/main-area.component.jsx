@@ -14,7 +14,6 @@ export class MainArea extends Component {
         this.state = {
             todos: [],
             isPopUpOpen: false,
-            isChecked: false,
             count: 0
         }
     }
@@ -29,7 +28,16 @@ export class MainArea extends Component {
                 id = this.state.todos[this.state.todos.length - 1].id + 1
             }
             this.setState({ todos: [...this.state.todos, { id: id, value: val.trim(), isChecked: false }] })
-            console.log(this.state.todos)
+        console.log(this.state.todos)
+        
+        let xx = 0;
+          this.state.todos.forEach((item) => {
+              if (item.isChecked === true) {
+                 xx+= (100 / this.state.todos.length)
+              }
+              
+          })
+        this.setState({count: xx})
         
     }
 
@@ -49,22 +57,34 @@ export class MainArea extends Component {
         
     }
 
-    // account = () => {
-    //     this.setState({ isChecked: !this.state.isChecked })
-    //     console.log(this.state.isChecked)
-    // }
+    handleItemCheckboxChange = (itemId) => {
+        // Update the state of the item with the new checkbox value
+        const updatedItems = this.state.todos.map((item) => {
+            console.log('start')
+            if (item.id === itemId) {
+                item.isChecked = !item.isChecked
+                console.log(item)
 
-     handleItemCheckboxChange = (itemId, isChecked) => {
-    // Update the state of the item with the new checkbox value
-    const updatedItems = this.state.todos.map((item) => {
-      if (item.id === itemId) {
-        return { ...item, isChecked };
-      }
-      return item;
-    });
+                
 
-    // Update the state with the new list of items
-         this.setState({ todos: updatedItems });
+                return { ...item };
+            }
+            return item;
+        });
+        let xx = 0;
+          this.state.todos.forEach((item) => {
+              if (item.isChecked === true) {
+                 xx+= (100 / this.state.todos.length)
+              }
+              
+          })
+        this.setState({count: xx})
+
+        // Update the state with the new list of items
+        this.setState({ todos: updatedItems });
+        console.log(`You are ${this.state.count}% done for today!`)
+        console.log(this.state)
+
   };
 
     openPopUp = () => {
@@ -79,12 +99,13 @@ export class MainArea extends Component {
     return (
       <div>
             <div className="main-area">
+                <p id="score">{ `You are ${this.state.count}% done for today!` }</p>
                 <ul className="tax">
                     { 
 
                          this.state.todos.map((todo, index) => {
                             
-                            return <li key={todo.id} className="item" id= {todo.id}><ListItem label={todo.title} onCheckboxChange={(isChecked) =>this.handleItemCheckboxChange(todo.id, isChecked)}/><span>{todo.value}</span> <GiTrashCan onClick={(e) => this.deleteItem(e)} className="trash-can" /></li>
+                            return <li key={todo.id} className="item" id= {todo.id}><ListItem label={todo.title} onCheckboxChange={() =>this.handleItemCheckboxChange(todo.id)}/><span>{todo.value}</span> <GiTrashCan onClick={(e) => this.deleteItem(e)} className="trash-can" /></li>
                             
                         
                         })   
