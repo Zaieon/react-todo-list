@@ -37,7 +37,7 @@ export class MainArea extends Component {
               }
               
           })
-        this.setState({count: xx})
+        this.setState({count: parseInt(xx)})
         
     }
 
@@ -63,10 +63,6 @@ export class MainArea extends Component {
             console.log('start')
             if (item.id === itemId) {
                 item.isChecked = !item.isChecked
-                console.log(item)
-
-                
-
                 return { ...item };
             }
             return item;
@@ -78,14 +74,36 @@ export class MainArea extends Component {
               }
               
           })
-        this.setState({count: xx})
+        this.setState({count: parseInt(xx)})
 
         // Update the state with the new list of items
         this.setState({ todos: updatedItems });
         console.log(`You are ${this.state.count}% done for today!`)
         console.log(this.state)
 
-  };
+    };
+    
+    displayScore = () => {
+        
+        if (this.state.todos.length > 0 && this.state.count === 0) {
+            return `You have ${this.state.todos.length} task(s) to do today!`
+        }
+        else if (this.state.count === 0) {
+            return  `No task to do yet.`
+        }
+        else if (this.state.count > 0 && this.state.count <= 39) {
+            return `You are ${this.state.count}% done today! ☹☹☹`
+        }
+        else if (this.state.count > 39 && this.state.count <= 69) {
+            return `You are ${this.state.count}% done for today! 😎😎😎`
+        }
+        else if (this.state.count > 69 && this.state.count <= 100) {
+            return `You are ${this.state.count}% done for today! 😎😎😎`
+        }
+        else {
+            return `Error Occured!`
+        }
+    }
 
     openPopUp = () => {
     this.setState({isPopUpOpen: true})
@@ -99,7 +117,7 @@ export class MainArea extends Component {
     return (
       <div>
             <div className="main-area">
-                <p id="score">{ `You are ${this.state.count}% done for today!` }</p>
+                <p id="score">{ this.displayScore() }</p>
                 <ul className="tax">
                     { 
 
