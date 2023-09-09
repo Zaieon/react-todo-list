@@ -9,7 +9,7 @@ export const PopUpForm = ({addItem, isOpen, onClose }) => {
             <button className="x-btn" onClick={onClose}><strong>X</strong></button>
             <div className="popup-content">
                 <input className="todo" type="text" placeholder="Write a goal..." />
-                <button className="add-item" onClick={() => addItem(document.querySelector('.todo').value)}>Add Goal</button>
+                <button className="add-item" onClick={() => addItem(document.querySelector('.todo').value)}>Add Task</button>
             </div>
 
         </div>

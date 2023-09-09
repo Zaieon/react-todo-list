@@ -6,16 +6,16 @@
 
     & .nav-bar{
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
 
         & div {
-            transform: translateY(20px) translateX(-40px);
+            transform: translateY(20px) translateX(-10px);
             font-size: 2rem;
         }
 
-        & h2 {
-            transform: translateX(-5rem);
-        }
+        // & h2 {
+        //     transform: translateX(-5rem);
+        // }
     }
 
 
