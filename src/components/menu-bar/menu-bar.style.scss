@@ -4,6 +4,10 @@
     background-color: rgb(247, 178, 247);
     border-radius: 5px;
 
+    &.opaq {
+        opacity: .2;
+    }
+
     & .nav-bar{
         display: flex;
         justify-content: space-evenly;
@@ -11,11 +15,12 @@
         & div {
             transform: translateY(20px) translateX(-10px);
             font-size: 2rem;
+            cursor: pointer;
         }
 
-        // & h2 {
-        //     transform: translateX(-5rem);
-        // }
+        & h2 {
+            cursor: pointer;
+        }
     }
 
 

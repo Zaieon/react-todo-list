@@ -1,5 +1,6 @@
 import React from "react";
 import './main-area.style.scss';
+import { MenuPopUp } from "../menu-bar/menuPopUp.component";
 import { NewTask } from "../new-task/new-task.component";
 import { PopUpForm } from "../popup-form/popup.component";
 import { GiTrashCan } from "react-icons/gi";
@@ -7,11 +8,12 @@ import ListItem from "./checkbox.component";
 
 
 
-export const MainArea = ({data, addItem, openPopUp, closePopUp, deleteItem, handleItemCheckboxChange, displayScore }) =>  {
+export const MainArea = ({updateTitle, closeMenuPopUp, data, addItem, openPopUp, closePopUp, deleteItem, handleItemCheckboxChange, displayScore }) =>  {
 
   return (
-    <div>
-            <div className="main-area">
+      <div>
+          <MenuPopUp updateTitle = {updateTitle} isMenuOpen = {data.isMenuPopUpOpen} closeMenuPopUp={ closeMenuPopUp } />
+          <div className= {`main-area ${data.isMenuPopUpOpen ? 'opaq' : ''} `}>
                 <p id="score">{ displayScore() }</p>
                 <ul className="tax">
                     { 

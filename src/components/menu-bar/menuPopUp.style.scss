@@ -1,0 +1,86 @@
+.menu-popup {
+    display: none;
+    position:fixed;
+    transform: translateY(-30px);
+    top: 0%;
+    left: 30%;
+    margin: 0px auto;
+    z-index: 5;
+    width: 37%;
+    height: 3rem;
+    padding: 20px;
+    border: none .5px solid;
+    background-color: red;
+    border-radius: 10px;
+    opacity: 1;
+
+    &.active {
+        display: block;
+        animation: dis .3s linear;
+
+        @keyframes dis {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            25% {
+                opacity: .25;
+                transform: translateY(-15px);
+            }
+
+            50% {
+                opacity: .50;
+                transform: translateY(0px);
+            }
+
+            75% {
+                opacity: .75;
+                transform: translateY(15px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(30px);
+            }
+        }
+
+        & .x-btn {
+            opacity: 0.3;
+            transform: translateY(25px) translateX(15px);
+            border-radius: 20px;
+            transition: opacity .3s ease;
+
+            &:hover {
+                opacity: .8;
+            }
+        }
+    }
+
+    & .menu-popup-content {
+        display: flex;
+        justify-content: space-between;
+        // transform: translateY(2rem);
+
+        & input {
+            width: 15rem;
+            height: 2rem;
+            margin: 0px auto;
+            font-size: 20px;
+            // transform: translateY(2rem);
+            border-radius: 10px;
+            outline: none;
+        }
+
+        & .add-item {
+            // transform: translateY(2rem);
+            color: blue;
+            width: 7rem;
+            height: 2.2rem;
+            border: none .5px solid;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+    }
+}

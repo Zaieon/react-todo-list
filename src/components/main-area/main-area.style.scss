@@ -8,6 +8,10 @@
     line-height: 2rem;
     overflow: visible;
 
+    &.opaq {
+        opacity: .2;
+    }
+
     & ul {
         list-style: none;
         animation: dis 5s ease-in;
