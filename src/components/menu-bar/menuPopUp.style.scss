@@ -1,21 +1,21 @@
 .menu-popup {
-    display: none;
+    // display: none;
     position:fixed;
     transform: translateY(-30px);
     top: 0%;
     left: 30%;
     margin: 0px auto;
-    z-index: 5;
     width: 37%;
     height: 3rem;
     padding: 20px;
-    border: none .5px solid;
-    background-color: red;
+    background-color: rgb(247, 238, 238);
+    outline: 1px solid rgb(247, 178, 247);
     border-radius: 10px;
-    opacity: 1;
+    opacity: 0;
+
 
     &.active {
-        display: block;
+        opacity: 1;
         animation: dis .3s linear;
 
         @keyframes dis {
@@ -45,11 +45,18 @@
             }
         }
 
+        & .inside {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
         & .x-btn {
             opacity: 0.3;
-            transform: translateY(25px) translateX(15px);
+            transform: translateY(1rem);
+            width: 2rem;
             border-radius: 20px;
             transition: opacity .3s ease;
+            cursor: pointer;
 
             &:hover {
                 opacity: .8;
@@ -58,29 +65,66 @@
     }
 
     & .menu-popup-content {
-        display: flex;
-        justify-content: space-between;
-        // transform: translateY(2rem);
+        transform: translateY(1rem);
 
-        & input {
-            width: 15rem;
+        & .title-input {
+            width: 20rem;
             height: 2rem;
             margin: 0px auto;
             font-size: 20px;
-            // transform: translateY(2rem);
             border-radius: 10px;
             outline: none;
         }
 
-        & .add-item {
-            // transform: translateY(2rem);
+        & .add-title {
             color: blue;
-            width: 7rem;
-            height: 2.2rem;
+            width: 4rem;
+            height: 2.3rem;
+            margin-left: 8px;
             border: none .5px solid;
             border-radius: 10px;
-            font-size: 15px;
+            font-size: 25px;
             cursor: pointer;
         }
+    }
+}
+
+@media (min-width: 0px) {
+    .menu-popup {
+        position: fixed;
+        transform: translateY(-30px);
+        top: 0%;
+        left: 0%;
+        width: 95%;
+    }
+}
+
+@media (min-width: 670px) {
+    .menu-popup {
+        position: fixed;
+        transform: translateY(-30px);
+        top: 0%;
+        left: 15%;
+        width: 68%
+    }
+}
+
+@media (min-width: 1048px) {
+    .menu-popup {
+        position: fixed;
+        transform: translateY(-30px);
+        top: 0%;
+        left: 25%;
+        width: 50%;
+    }
+}
+
+@media (min-width: 1300px) {
+    .menu-popup {
+        position: fixed;
+        transform: translateY(-30px);
+        top: 0%;
+        left: 30%;
+        width: 38%;
     }
 }

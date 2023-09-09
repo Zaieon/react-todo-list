@@ -2,7 +2,7 @@
     position:sticky;
     transform: translateY(40px);
     top: 100%;
-    left: 44%;
+    left: 43.5%;
     margin: 0px auto;
     color: blue;
     width: 10rem;
@@ -17,4 +17,28 @@
         font-weight: 600;
     }
     
+}
+
+@media (min-width: 0px) {
+    .new-item {
+        left: 35%
+    }
+}
+
+@media (min-width: 670px) {
+    .new-item {
+        left: 40.5%;
+    }
+}
+
+@media (min-width: 1048px) {
+    .new-item{
+    left: 43.5%;
+    }
+}
+
+@media (min-width: 1300px) {
+    .new-item {
+        left: 43.5%;
+    }
 }

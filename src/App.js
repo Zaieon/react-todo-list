@@ -29,7 +29,6 @@ export default class App extends Component {
                 id = this.state.todos[this.state.todos.length - 1].id + 1
             }
             this.setState({ todos: [...this.state.todos, { id: id, value: val.trim(), isChecked: false }] })
-        console.log(this.state.todos)
         
         let xx = 0;
           this.state.todos.forEach((item) => {
@@ -48,20 +47,19 @@ export default class App extends Component {
         if (e.target.parentElement.parentElement.id) {
             updatedItems = this.state.todos.filter(item => item.id !== Number(e.target.parentElement.parentElement.id));
             this.setState({todos: updatedItems});
-            console.log(this.state.todos)
         }
         else if (e.target.parentElement.id) {
             updatedItems = this.state.todos.filter(item => item.id !== Number(e.target.parentElement.id));
             this.setState({todos: updatedItems});
-            console.log(this.state.todos)
         }
+      
+      this.displayScore()
         
     }
   
   handleItemCheckboxChange = (itemId) => {
         // Update the state of the item with the new checkbox value
         const updatedItems = this.state.todos.map((item) => {
-            console.log('start')
             if (item.id === itemId) {
                 item.isChecked = !item.isChecked
                 return { ...item };
@@ -79,8 +77,6 @@ export default class App extends Component {
 
         // Update the state with the new list of items
         this.setState({ todos: updatedItems });
-        console.log(`You are ${this.state.count}% done for today!`)
-        console.log(this.state)
 
     };
     
@@ -113,14 +109,13 @@ export default class App extends Component {
     if (this.state.todos.length > 0) {
       this.setState({ storage: [...this.state.storage, {listTitle: this.state.listTitle, listItem: this.state.todos}]})
       this.setState({ todos: [] })
-      console.log(this.state.storage)
+      this.setState({listTitle: 'Enter Title here...'})
       this.setState({count: 0})
     }
     
   }
   
   updateTitle = (val) => {
-    console.log(val)
     this.setState({ listTitle: val })
     this.closeMenuPopUp()
   }

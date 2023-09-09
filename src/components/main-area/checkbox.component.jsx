@@ -28,7 +28,6 @@ class ListItem extends Component {
           checked={this.state.isChecked}
           onChange={this.handleCheckboxChange}
         />
-        {/* <label>{this.props.label}</label> */}
       </div>
     );
   }
